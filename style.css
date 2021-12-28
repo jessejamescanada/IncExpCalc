@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(235, 235, 235);
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  width: 800px;
+}
+
+.incomeContainer,
+.expenseContainer {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 30vh;
+}
+
+.displayContainer {
+  background-color: rgb(255, 255, 255);
+  border-radius: 7px;
+  box-shadow: 12px 10px 25px -17px rgb(0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 450px;
+  padding: 20px;
+  margin: 20px;
+}
+
+.error,
+.error2 {
+  color: red;
+  font-size: 20px;
+  font-weight: bold;
+  display: none;
+  z-index: 1009;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  opacity: 0.8;
+  z-index: 1001;
+}
+
+.break {
+  border: none;
+  border-top: 1px dotted #f00;
+  width: 75%;
+}
+
+.expenseDisplayName ul,
+.incomeDisplayName ul {
+  list-style-type: none;
+  background-color: white;
+  display: flex;
+  padding: 0;
+  margin: 3px 0px;
+  justify-content: space-between;
+  box-shadow: 12px 10px 25px -17px rgb(0, 0, 0);
+  border-radius: 5px;
+}
+.expenseDisplayName ul:hover,
+.incomeDisplayName ul:hover {
+  background-color: rgb(238, 177, 177);
+}
+
+.deleteBtn {
+  display: flex;
+  font-size: 14px;
+  width: 100%;
+  margin: 10px;
+  justify-content: space-between;
+}
+.deleteBtn button {
+  width: 30px;
+  height: 20px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-transform: capitalize;
+  border-radius: 5px;
+  background-color: rgb(255, 199, 116);
+}
+
+.btn1,
+.btn2 {
+  background-color: rgba(0, 126, 126, 0.616);
+  color: white;
+  border: none;
+  outline: none;
+  margin: 1rem;
+  width: 100px;
+  height: 35px;
+  border-radius: 3px;
+  box-shadow: 12px 10px 25px -17px rgb(0, 0, 0);
+  cursor: pointer;
+}
+.btn1:hover,
+.btn2:hover {
+  background-color: rgba(0, 126, 126, 0.294);
+  color: #333;
+}
+
+.sortIncBtn,
+.sortExpBtn {
+  background-color: rgba(195, 121, 255, 0.616);
+  color: white;
+  border: none;
+  outline: none;
+  margin: 1rem;
+  width: 100px;
+  height: 35px;
+  border-radius: 3px;
+  box-shadow: 12px 10px 25px -17px rgb(0, 0, 0);
+  cursor: pointer;
+}
+
+.sortExpBtn:hover,
+.sortIncBtn:hover {
+  background-color: rgb(143, 25, 158);
+  color: white;
+}
+
+input {
+  padding: 10px;
+  border-radius: 5px;
+  margin: 4px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.incExpContainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.incomeTotal {
+  color: green;
+}
+
+.expenseTotal {
+  color: red;
+}
+
+.chewy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .break {
+    display: none;
+  }
+  .incomeContainer form,
+  .expenseContainer form {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+  }
+  .incomeContainer,
+  .expenseContainer {
+    justify-content: center;
+    align-items: center;
+  }
+  .container {
+    text-align: center;
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .chewy {
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto;
+    width: 100%;
+  }
+  .container {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    margin: 20px;
+    width: 100%;
+  }
+  .heading1 {
+    margin-top: 20px;
+    font-size: 26px;
+  }
+  .displayContainer {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: auto;
+    margin: auto;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+  }
+  .incExpContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+  }
+  .expenseDisplayName {
+  }
+  .expenseContainer,
+  .incomeContainer {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin: auto;
+    align-items: center;
+  }
+  .heading3 {
+    font-size: 13px;
+  }
+  input {
+    width: 100%;
+  }
+  ::placeholder {
+    font-size: 12px;
+  }
+  .break {
+    display: none;
+  }
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <title>Income & Expense Tracker</title>
+</head>
+<body>
+    <div class="chewy">
+    <div class="overlay"></div>
+    <h1 class="heading1">Income & Expense Tracker</h1>
+    <div class="displayContainer">
+        <div class="incExpContainer">
+            <h4 class="heading4">Expense Total: $<span class="expenseTotal"></span></h4>
+            <h4 class="heading4">Income Total: $<span class="incomeTotal"></span></h4>
+        </div>
+        <h2 class="heading2">Total Money: $<span class="totalMoney"></span></h2>
+    </div>
+<div class="container">
+    <div class="expenseContainer">
+    <h3 class="heading3">Enter Your Expense</h3>
+    <div class="error">Error: Please Enter Info</div>
+    <form>
+        <input type="text" class="expenseName" placeholder="Enter Your Expense" maxlength="20">
+        <input type="number" class="expenseAmount" placeholder="Enter $ Amount" >
+            <button class="btn1">Submit</button>
+    </form>
+            <div class="break"></div>
+                <button class="sortExpBtn">Sort by Price</button>
+                <div class="expenseDisplayName"></div>
+    </div>
+    <div class="break"></div>
+    <div class="incomeContainer">
+    <h3 class="heading3">Enter Your Income</h3>
+    <div class="error2">Error: Please Enter Info</div>
+    <form>
+        <input type="text" class="incomeName" placeholder="Enter Your Income" maxlength="20">
+        <input type="number" class="incomeAmount" placeholder="Enter $ Amount" >
+            <button class="btn2">Submit</button>
+    </form>
+            <div class="break"></div>
+                <button class="sortIncBtn">Sort by Price</button>
+                <div class="incomeDisplayName"></div>
+    </div>
+</div>    
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
