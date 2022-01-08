@@ -149,12 +149,14 @@ sortExpBtn.addEventListener('click', sortExpenses)
 
 sortIncBtn.addEventListener('click', sortIncome)
 
-function sortExpenses() {
+function sortExpenses(e) {
+    e.preventDefault()
     expenseObject.sort((a, b) => parseFloat(b.expensePrice) - parseFloat(a.expensePrice))
     showExpenseDom()
 }
 
-function sortIncome() {
+function sortIncome(e) {
+    e.preventDefault()
     incomeObject.sort((a, b) => parseFloat(b.incomePrice) - parseFloat(a.incomePrice))
     showIncomeDom()
 }
