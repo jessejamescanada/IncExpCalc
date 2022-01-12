@@ -23,6 +23,10 @@ body {
 .heading1 {
   text-align: center;
 }
+
+.heading2 {
+  text-align: center;
+}
 /* .heading2 {
   display: flex;
   flex-direction: column;
