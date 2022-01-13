@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Income & Expense Tracker</title>
 </head>
@@ -18,34 +19,56 @@
             <h4 class="heading4">Expenses: $<span class="expenseTotal"></span></h4>
             <h4 class="heading4">Income: $<span class="incomeTotal"></span></h4>
         </div>
-        <!-- <h2 class="heading2">Total Money: $<span class="totalMoney"></span></h2> -->
     </div>
     <div class="expenseContainer">
-    <h3 class="heading3">Enter Your Expense</h3>
-    <div class="error">Error: Please Enter Info</div>
-    <form id="form">
-        <input type="text" class="expenseName" placeholder="Enter Your Expense" maxlength="20">
-        <input type="number" class="expenseAmount" placeholder="Enter $ Amount" >
-            <button class="btn1">Submit</button>
-            <button class="sortExpBtn">Sort by Price</button>
-    </form>
-    <div class="break"></div>
+    <button class="launchExpenseBtn triggerExpenseModal">Add Expense</button>
+    <button class="launchIncomeBtn triggerIncomeModal">Add Income</button>
     </div>
-    <div class="expenseDisplayName"></div>
-    <div class="break"></div>
-    <div class="incomeContainer">
-    <h3 class="heading3">Enter Your Income</h3>
-    <div class="error2">Error: Please Enter Info</div>
-    <form id="form">
-        <input type="text" class="incomeName" placeholder="Enter Your Income" maxlength="20">
-        <input type="number" class="incomeAmount" placeholder="Enter $ Amount" >
-            <button class="btn2">Submit</button>
-            <button class="sortIncBtn">Sort by Price</button>
-    </form>
-            <div class="break"></div> 
+    <div class="expenseModal">
+        <div class="modalContent">
+            <span class="closeExpenseModal">&times;</span>
+            <h3>Expense</h3>
+            <form id="loginForm">
+                <div class="inputField">
+                    <input type="text" id="loginEmail" class="expenseName" placeholder="Expense Description" maxlength="15">
+                    <input type="number" class="expenseAmount" placeholder="Enter $ Amount">
+                </div>
+                <button class="btn1">Submit</button>
+            </form>
+        </div>
     </div>
-    <div class="incomeDisplayName"></div>
+    <div class="incomeModal">
+        <div class="modalContent">
+            <span class="closeIncomeModal">&times;</span>
+            <h3>Income</h3>
+            <form id="loginForm">
+                <div class="inputField">
+                    <input type="text" id="loginPassword" class="incomeName" placeholder="Enter Your Income" max="15">
+                    <input type="number" class="incomeAmount" placeholder="Enter $ Amount">
+                </div>
+                <button class="btn2">Submit</button>
+            </form>
+        </div>
+    </div>
 </div>
+</div>
+<div class="expenseCont">
+    <div class="transactionCont">
+        <div class="expenseDisplayCont">
+            <h2>Expenses</h2>
+        <div class="expenseDisplayName"></div>
+        <button class="sortExpBtn">Sort</button>
+    </div>
+    <div class="error">
+        <div class="errorMsg">Error: Please Enter Info</div></div>
+    <div class="error2"><div class="errorMsg">Error: Please Enter Info</div></div>
+        <div class="incomeDisplayCont">
+        <h2>Income</h2>
+            <div class="incomeDisplayName"></div>
+            <button class="sortIncBtn">Sort</button>
+            </div>
+    </div>
+</div> 
     <script src="script.js"></script>
 </body>
 </html>

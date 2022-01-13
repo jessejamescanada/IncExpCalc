@@ -44,6 +44,7 @@ btn1.addEventListener('click', (e) => {
     expenseName.value = ''
     expenseAmount.value = ''
     e.preventDefault()
+    toggleExpenseModal(e)
 })
 
 
@@ -65,6 +66,7 @@ btn2.addEventListener('click', (e) => {
     IncomeName.value = ''
     IncomeAmount.value = ''
     e.preventDefault()
+    toggleIncomeModal()
 })
 
 function addExpenseTotal() {
@@ -81,6 +83,8 @@ function addIncomeTotal() {
     showMoney()
 }
 
+// remove transactions
+
 function removeExp(id){
     expenseObject = expenseObject.filter(exp => exp.id !== id)
     addExpenseTotal()
@@ -95,10 +99,12 @@ function removeInc(id){
     showMoney()
 }
 
+// display transactions
+
 function showExpenseDom() {
     expenseDisplayName.innerHTML = expenseObject.map((exp) => {
         return `<ul>
-            <div class="deleteBtn"><li>${exp.expense} $${exp.expensePrice}</li> <button onclick="removeExp(${exp.id})"> x </button></div>
+            <div class="deleteBtn"><li>${exp.expense} <span class="bold">$${exp.expensePrice}</span></li> <button onclick="removeExp(${exp.id})"> x </button></div>
             </ul>`
     }).join('')
 }
@@ -106,7 +112,7 @@ function showExpenseDom() {
 function showIncomeDom() {
     incomeDisplayName.innerHTML = incomeObject.map((inc) => {
         return `<ul>
-            <div class="deleteBtn"><li>${inc.income} $${inc.incomePrice}</li> <button onclick="removeInc(${inc.id})"> x </button></div>
+            <div class="deleteBtn"><li>${inc.income} <span class="bold">$${inc.incomePrice}</span></li> <button onclick="removeInc(${inc.id})"> x </button></div>
             </ul>`
     }).join('')
 }
@@ -124,6 +130,8 @@ function showMoney() {
 function randomID() {
     return Math.floor(Math.random() * 100000000)
 }
+
+// errors
 
 function showError(){
     errorDisplay.style.display = 'block'
@@ -145,6 +153,8 @@ function hideError2(){
     overlay.style.display = 'none'
 }
 
+// sort functionality
+
 sortExpBtn.addEventListener('click', sortExpenses)
 
 sortIncBtn.addEventListener('click', sortIncome)
@@ -160,3 +170,31 @@ function sortIncome(e) {
     incomeObject.sort((a, b) => parseFloat(b.incomePrice) - parseFloat(a.incomePrice))
     showIncomeDom()
 }
+
+
+// modal 
+
+const expenseModal = document.querySelector('.expenseModal')
+const incomeModal = document.querySelector('.incomeModal')
+const closeExpenseModal = document.querySelector('.closeExpenseModal')
+const closeIncomeModal = document.querySelector('.closeIncomeModal')
+const triggerIncome = document.querySelector('.triggerIncomeModal')
+const triggerExpense = document.querySelector('.triggerExpenseModal')
+
+// expenseModal
+function toggleExpenseModal(e) {
+    e.preventDefault()
+    expenseModal.classList.toggle('showModal')
+}
+
+triggerExpense.addEventListener('click', toggleExpenseModal)
+closeExpenseModal.addEventListener('click', toggleExpenseModal)
+
+// incomeModal
+function toggleIncomeModal(){
+    // e.preventDefault()
+    incomeModal.classList.toggle('showModal')
+}
+
+triggerIncome.addEventListener('click', toggleIncomeModal)
+closeIncomeModal.addEventListener('click', toggleIncomeModal)

@@ -2,6 +2,7 @@
 
 :root {
   --box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0.24);
+  --font-family: 'Nunito', sans-serif;
 }
 
 * {
@@ -22,15 +23,16 @@ body {
 
 .heading1 {
   text-align: center;
+  font-family: var(--font-family);
+}
+
+h2 {
+  font-family: var(--font-family);
 }
 
 .heading2 {
   text-align: center;
 }
-/* .heading2 {
-  display: flex;
-  flex-direction: column;
-} */
 
 .displayContainer {
   background-color: rgb(255, 255, 255);
@@ -44,21 +46,23 @@ body {
   margin: 20px;
 }
 
-.incomeContainer,
-.expenseContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 .error,
 .error2 {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
   color: red;
   font-size: 20px;
   font-weight: bold;
   display: none;
   z-index: 1009;
+}
+.errorMsg {
+  position: relative;
+  text-align: center;
+  top: 50%;
 }
 
 #form {
@@ -79,21 +83,16 @@ body {
   z-index: 1001;
 }
 
-.break {
-  display: none;
-  border: none;
-  border-top: 1px dotted #f00;
-  width: 75%;
-}
-
 .expenseDisplayName,
 .incomeDisplayName {
   padding: 0;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   width: 90%;
   margin: auto;
+  height: 45vh;
+  overflow: hidden;
+  flex-wrap: wrap;
 }
 
 .expenseDisplayName ul,
@@ -106,18 +105,62 @@ body {
   justify-content: space-between;
   box-shadow: var(--box-shadow);
   border-radius: 5px;
+  width: 40%;
 }
 .expenseDisplayName ul:hover,
 .incomeDisplayName ul:hover {
   background-color: rgb(238, 177, 177);
 }
+.expenseDisplayName ul {
+  border-bottom: red 1px solid;
+  border-right: 2px solid red;
+}
 
+.incomeDisplayName ul {
+  border-bottom: 1px solid green;
+  border-right: 2px solid green;
+}
+
+.transactionCont {
+  border-radius: 15px;
+  display: flex;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.expenseDisplayCont,
+.incomeDisplayCont {
+  background: white;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  box-shadow: var(--box-shadow);
+  margin: 0.5rem;
+}
+
+.incomeDisplayCont {
+  border-left: 1px dotted grey;
+}
+
+.expenseDisplayCont h2,
+.incomeDisplayCont h2 {
+  text-align: center;
+}
+
+/* Buttons */
 .deleteBtn {
   display: flex;
-  font-size: 14px;
+  font-size: 12px;
   width: 100%;
-  margin: 10px;
+  margin: 5px;
   justify-content: space-between;
+  align-items: center;
+}
+.bold {
+  font-weight: 900;
+  align-self: flex-end;
+  justify-self: flex-end;
 }
 .deleteBtn button {
   width: 30px;
@@ -130,10 +173,12 @@ body {
   background-color: rgb(255, 199, 116);
 }
 
+.launchIncomeBtn,
+.launchExpenseBtn,
 .btn1,
 .btn2 {
-  background-color: rgba(0, 126, 126, 0.616);
-  color: white;
+  background-color: rgba(252, 129, 58, 0.616);
+  color: rgb(255, 255, 255);
   border: none;
   outline: none;
   margin: 0.3rem;
@@ -143,6 +188,8 @@ body {
   box-shadow: 12px 10px 25px -17px rgb(0, 0, 0);
   cursor: pointer;
 }
+.launchIncomeBtn:hover,
+.launchExpenseBtn:hover,
 .btn1:hover,
 .btn2:hover {
   background-color: rgba(0, 126, 126, 0.294);
@@ -170,16 +217,18 @@ body {
   color: white;
 }
 
-input {
-  padding: 10px;
-  border-radius: 5px;
-  margin: 4px;
-}
-
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+input {
+  padding: 10px;
+  border-radius: 5px;
+  margin: 4px;
+  box-shadow: var(--box-shadow);
+  border: none;
 }
 
 .incExpContainer {
@@ -192,7 +241,7 @@ input::-webkit-inner-spin-button {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* flex-direction: column; */
+  font-family: var(--font-family);
   width: 50%;
 }
 
@@ -208,20 +257,11 @@ input::-webkit-inner-spin-button {
   color: red;
 }
 
+/* MEDIA QUERIES */
+
 @media (max-width: 1024px) {
   .break {
     display: none;
-  }
-  .incomeContainer form,
-  .expenseContainer form {
-    display: flex;
-    flex-direction: column;
-    width: auto;
-  }
-  .incomeContainer,
-  .expenseContainer {
-    justify-content: center;
-    align-items: center;
   }
   .container {
     text-align: center;
@@ -234,8 +274,23 @@ input::-webkit-inner-spin-button {
     display: flex;
     flex-direction: column;
     width: 100%;
+    margin-top: 0;
+    margin-bottom: 9px;
   }
-
+  .transactionCont {
+    flex-direction: column;
+    width: 100%;
+  }
+  .expenseDisplayCont,
+  .incomeDisplayCont {
+    width: 95%;
+    border-radius: 10px;
+    margin: 5px auto;
+  }
+  .incomeDisplayCont {
+    border-left: none;
+    margin-bottom: 1.5rem;
+  }
   .heading1 {
     margin-top: 20px;
     font-size: 26px;
@@ -258,26 +313,39 @@ input::-webkit-inner-spin-button {
     justify-content: center;
     align-items: center;
   }
-  /* .expenseDisplayName,
+  .expenseDisplayName,
   .incomeDisplayName {
-    width: 90%;
-    margin: auto;
-    padding: 0;
-  } */
-  .expenseContainer,
-  .incomeContainer {
+    height: 30vh;
+  }
+  .expenseDisplayName ul,
+  .incomeDisplayName ul {
+    width: 50%;
+  }
+  .expenseContainer {
     display: flex;
-    flex-direction: column;
     width: 40%;
+    text-align: center;
     margin: auto;
+    margin-top: 1rem;
     align-items: center;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    opacity: 0.9;
+  }
+  .launchIncomeBtn,
+  .launchExpenseBtn {
+    height: 3rem;
+    font-weight: 700;
+    box-sizing: var(--box-shadow);
   }
   .heading4:first-child {
     border-right: none;
   }
-  .heading3 {
-    font-size: 13px;
+  .heading1 {
+    margin-bottom: 0;
   }
+
   input {
     width: 100%;
   }
@@ -287,4 +355,49 @@ input::-webkit-inner-spin-button {
   .break {
     display: none;
   }
+}
+
+/* login modal */
+.expenseModal,
+.incomeModal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: aliceblue;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.1);
+  transition: visibility 0s linear 0.25s opacity 0.25s 0s, transform 0.25s;
+}
+
+.modalContent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 1rem 1.5rem;
+  width: 24rem;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+}
+
+.closeIncomeModal,
+.closeExpenseModal {
+  float: right;
+  width: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: lightgray;
+}
+
+.showModal {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  transition: visibility 0s linear 0.25s opacity 0.25s 0s, transform 0.25s;
 }
