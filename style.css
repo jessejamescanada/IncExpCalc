@@ -157,6 +157,10 @@ h2 {
   justify-content: space-between;
   align-items: center;
 }
+
+.buttonContainer {
+  text-align: center;
+}
 .bold {
   font-weight: 900;
   align-self: flex-end;
