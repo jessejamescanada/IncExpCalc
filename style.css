@@ -325,7 +325,7 @@ input {
   .incomeDisplayName ul {
     width: 50%;
   }
-  .expenseContainer {
+  .buttonContainer {
     display: flex;
     width: 40%;
     text-align: center;
