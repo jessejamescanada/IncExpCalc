@@ -91,7 +91,7 @@ h2 {
   width: 90%;
   margin: auto;
   height: 45vh;
-  overflow: hidden;
+  overflow: auto;
   flex-wrap: wrap;
 }
 
